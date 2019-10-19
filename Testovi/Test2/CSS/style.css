@@ -1,0 +1,76 @@
+*{margin: 0%;
+padding: 0%;
+box-sizing: border-box;
+
+}
+body {width: 100%;
+     height: 100%;
+    background-color: white;}
+footer {text-align: center;
+        display: block;
+        background-color: violet;
+        color: white;
+        height: 60px;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;}
+.head {margin: 0px;
+       height: 60px;
+       background-color: violet;
+       color: white;}
+#firstheading {display: block;}
+
+.meni {background-color: white;
+       width: 100%;}
+.podmeni a {color:white;
+    padding: 14px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    border-right: 2px solid #bababa;
+    background-color: violet;
+    width:100%;}
+.podmeni a:hover {background-color: red;
+                  width: 95%;}
+li {margin: 5px;}
+img {width: 100%;}
+h2 {margin: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+#uvuceno {margin: 0px 10px;}
+#slikap {display: block;
+        width: 100%;}
+#slikap:active {width:50%;
+               margin-left: auto;
+               margin-right: auto;}
+#posebna:hover {opacity: 0.5;}
+.col-4 {width:33.33%;
+        align-items: center;}
+.row {display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;}
+.forma {display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;}
+.izforme {margin:5px;}
+
+@media only screen and (min-width: 600px) {
+    .meni {width:25%;
+          float: left;}
+    .desni {width: 75%;
+        float: right;
+        }
+    .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 25px 0px;}
+    .centralni {color:red;}
+    #centralninaslov:hover {color:red;}
+
+}
+
+    

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Zarko Dimitrijevic</title>
+        <link rel="favicon icon" href="./favicon.ico">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+        <style>
+            html, body {background-color: cornflowerblue;
+                        height:100%;
+                        margin:0;}
+                        
+            @media only screen and (max-width: 600px) {
+                .flex-container{
+                display:flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                }
+                .polaroid {max-width: 80%;}
+                #first{height: 20px;}
+            }
+ 
+            @media only screen and (min-width: 600px) {
+                .flex-container{
+                display:flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                }
+                .polaroid {max-width: 80%;}
+                #first{height: 20px;}
+            }
+
+            @media only screen and (min-width: 768px) {
+                .flex-container{
+                height: 100%;
+                display:flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                }
+                .polaroid {max-width: 25%;}
+                #first{display:none;}
+                .pictures{height: 100%;}
+                .zanimanja {height: 100%;}
+                .text {max-width:50%;}
+            }
+            
+            img {display: block;
+                max-width:100%;
+                width: auto;
+                height: auto;
+                }
+            
+            .polaroid {
+                       background-color: white;
+                       margin-bottom: 25px;
+                       text-align: center;
+                       font-family: Arial, Helvetica, sans-serif;
+                       font-style:normal;}
+            
+            .zanimanja{background-color: white;
+                        display:flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;}
+           
+            hr {border:2px solid white;}
+                                 
+        </style>
+
+    </head>
+    
+
+    <body>
+        <section id="navigationbar">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">dr Žarko Dimitrijević</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul></ul>
+                    <ul></ul>
+                    <ul></ul>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="#biography">Biografija</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#early">Zanimljivosti</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="#hobby">Hobi</a></li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+            </nav>
+        </section>
+
+       <section class="pictures">
+            <div class="flex-container">
+                <div id="first"></div>
+                <div class="polaroid"><a href="#javniizvrsitelj"><img src="./eagent.jpg"></a>Javni izvrsitelj</div>
+                <div class="polaroid"><a href="#predavac"><img src="./predavac.jpg"></a>Predavac i konsultant</div>
+                <div class="polaroid"><a href="#medijator"><img src="./mediator.jpg"></a>Medijator</div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="biography" class="zanimanja">
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic recusandae tenetur molestias dolor dolorem asperiores voluptas nisi tempora impedit similique numquam distinctio quibusdam, beatae nobis magni maxime aliquid corporis natus nulla laudantium ratione! Ad dicta voluptate porro, magnam voluptatibus sapiente modi, quis ea praesentium possimus eaque, asperiores sequi architecto officia inventore totam explicabo perferendis qui provident molestias. Quod, incidunt! Quos odio eum veritatis nisi asperiores doloribus, neque inventore tenetur esse quae dolorem aspernatur voluptas blanditiis voluptate incidunt minus, ducimus, harum officia illo. Tenetur fugit et delectus error ut ea, nostrum, sapiente, deserunt exercitationem velit quia obcaecati optio minima ipsam sit?</div>
+        </section>
+
+        <hr>
+
+        <section id="early" class="zanimanja">
+                <div class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore vero sint consequatur debitis sequi quo, quod mollitia repudiandae voluptatem! Corporis itaque sit accusantium minima quis, culpa id, recusandae, inventore quod ratione quibusdam distinctio architecto quasi. Numquam expedita minus possimus fuga quos explicabo molestias, accusantium qui aliquid praesentium aperiam magnam blanditiis necessitatibus, architecto quia est tempora doloremque, repudiandae tempore. Blanditiis earum enim omnis eum voluptatum, eius voluptates cumque accusamus illo officia explicabo vitae veniam excepturi laborum atque a sit veritatis maxime quo maiores quae. Autem aspernatur perspiciatis temporibus voluptate. Harum illo animi repudiandae voluptates nemo deserunt esse, facilis ipsa magni assumenda.</div>
+        </section>
+            
+        <hr>
+
+        <section id="hobby" class="zanimanja">
+            <div class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione corporis deserunt nam quidem unde in, minus neque. Tempore dolorem dignissimos ab atque repellat unde placeat officia eius commodi cumque eligendi sit molestiae omnis ipsum alias, quaerat, voluptate fugit laudantium? Repellat ad laudantium nihil dolor, reiciendis quo nisi veritatis quas sunt, eius autem explicabo eaque molestiae culpa. Nam dolorem, nemo officiis quis earum quod culpa reiciendis qui vero et quos, voluptatum possimus quae quas adipisci cumque. Blanditiis alias iste sit dolores inventore sunt quasi rerum, numquam dolorum reprehenderit? Rerum recusandae id reprehenderit numquam libero nihil ipsa velit, quisquam nemo, nam sunt.</div>
+        </section>
+
+        <hr>
+
+        <section id="javniizvrsitelj" class="zanimanja">
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic recusandae tenetur molestias dolor dolorem asperiores voluptas nisi tempora impedit similique numquam distinctio quibusdam, beatae nobis magni maxime aliquid corporis natus nulla laudantium ratione! Ad dicta voluptate porro, magnam voluptatibus sapiente modi, quis ea praesentium possimus eaque, asperiores sequi architecto officia inventore totam explicabo perferendis qui provident molestias. Quod, incidunt! Quos odio eum veritatis nisi asperiores doloribus, neque inventore tenetur esse quae dolorem aspernatur voluptas blanditiis voluptate incidunt minus, ducimus, harum officia illo. Tenetur fugit et delectus error ut ea, nostrum, sapiente, deserunt exercitationem velit quia obcaecati optio minima ipsam sit?</div>
+        </section>
+    
+        <hr>
+    
+        <section id="predavac" class="zanimanja">
+            <div class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore vero sint consequatur debitis sequi quo, quod mollitia repudiandae voluptatem! Corporis itaque sit accusantium minima quis, culpa id, recusandae, inventore quod ratione quibusdam distinctio architecto quasi. Numquam expedita minus possimus fuga quos explicabo molestias, accusantium qui aliquid praesentium aperiam magnam blanditiis necessitatibus, architecto quia est tempora doloremque, repudiandae tempore. Blanditiis earum enim omnis eum voluptatum, eius voluptates cumque accusamus illo officia explicabo vitae veniam excepturi laborum atque a sit veritatis maxime quo maiores quae. Autem aspernatur perspiciatis temporibus voluptate. Harum illo animi repudiandae voluptates nemo deserunt esse, facilis ipsa magni assumenda.</div>
+        </section>
+                
+        <hr>
+    
+        <section id="medijator" class="zanimanja">
+            <div class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione corporis deserunt nam quidem unde in, minus neque. Tempore dolorem dignissimos ab atque repellat unde placeat officia eius commodi cumque eligendi sit molestiae omnis ipsum alias, quaerat, voluptate fugit laudantium? Repellat ad laudantium nihil dolor, reiciendis quo nisi veritatis quas sunt, eius autem explicabo eaque molestiae culpa. Nam dolorem, nemo officiis quis earum quod culpa reiciendis qui vero et quos, voluptatum possimus quae quas adipisci cumque. Blanditiis alias iste sit dolores inventore sunt quasi rerum, numquam dolorum reprehenderit? Rerum recusandae id reprehenderit numquam libero nihil ipsa velit, quisquam nemo, nam sunt.</div>
+        </section>
+
+    </body>
+    
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    
+    
+
+</html>

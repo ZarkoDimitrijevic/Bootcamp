@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vezbanje</title>
+        
+        <link rel="tab icon" href="./favicon.ico">
+        
+        <style>
+            body {font-size: 20px;
+                  font-family: Arial, Helvetica, sans-serif;
+                  background-color: brown;
+                  background-image: url('./flag-geek-banner.jpg');
+                  background-repeat: repeat-x; /*namestili smo da se ponavlja po x osi, a zapravo znaci kada je slika manja od html elementa, po defaultu je repeat po svim osama, a mozemo da je podesimo da se ne ponavlja ili da se ponovi samo po nekoj osi.*/
+                  background-position: 10px 40px /*navodimo poziciju, odakle ce da pocne slika, a mozemo i tekstuelno top, top right i sl.*/;
+                  background-attachment: fixed; /*nesto da se slicica vidi i dalje ako ti prelazis u drugi html tag, tako nesto, pogledati*/}
+                  
+            h1 {color:maroon;}*
+            h2 {color: red;}
+            p {color:violet;}
+            img {width: 400px;
+                 height: 300px;
+                 border-width: 2px;
+                 border-style: dotted;
+                 border-color: tomato;
+                 /*moze da se koristi samo border: 2px solid black, moze i drugaciji redosled u vecini browsera*/
+                 /*margina je razmak od elementa prema spolja. 
+                 margin-top: 30px;
+                 margin-left: 60px*/
+                 margin: 10px 20px 30px 40px /*pocinje se od top i ide u krug u smeru kazaljke na satu, znaci top, right, bottom, left*/
+                 /*kada stavimo 3 vrednosti, recimo 10px 20px 30px onda ide top 10, right je kao i left 20, a bottom je 30*/
+                 /*kada imamo 2 vrednosti, recimo 10px 20px, prva je za gore dole, a druga je za levo desno*/
+                 /*ako stavis samo 10px, to znaci da sve vrednosti imaju istu dimenziju*/
+                 /*prostor izmedju okvira i samog elementa je padding, vaze ista pravila kao i za margin*/;
+                 padding: 20px;}
+
+            
+            #eto {text-decoration: none; /*uglavnom se koristi za linkove. Kad stavis none, skida onu crticu ispod linka koja je po defaultu.*/
+               color: red;}
+            #eto:visited{color:blue;}
+            #eto:hover {color:yellow;}/*vrlo je bitan redosled kojim se pisu ovi pseudoselektori*/
+            #eto:active {color:white;} /*dok se drzi klik preko njega*/
+            
+
+            .myp {color: yellowgreen;
+                  font-weight: bold;
+                  /*moze i samo font: bold 20px courier-new*/}
+            .drugiparagraf {text-align: right;
+                            font-size: 24px;}
+            .dn {text-align: center;}
+            #naslov {
+                 font-size: 60px;}
+            #treciparagraf {text-align: center;
+                            color: red;
+                            font-family: 'comic sans', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;}
+
+        </style>
+    </head>
+
+    <body>
+        <h1>Naslov</h1>
+        <p class="myp">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit incidunt quasi commodi deleniti, officia quod? Veritatis necessitatibus placeat dicta hic nisi maiores incidunt iure, esse minima maxime odit blanditiis perferendis accusamus neque nulla molestias et at ullam nihil quaerat est odio itaque cum! Minima porro provident unde magnam veritatis repellat explicabo atque maiores quaerat natus possimus harum impedit quae quisquam accusantium voluptatum, perspiciatis incidunt? Reprehenderit quibusdam, necessitatibus, ipsa alias quis quidem impedit voluptas voluptatum commodi facilis consectetur. Unde voluptatem saepe odio voluptas sit facere repudiandae alias sequi sapiente eligendi perspiciatis, cumque quis! Ab dolorum saepe nihil repellendus ex nostrum accusantium.</p>
+
+            <h2>Podnaslov</h2>
+            <p class="drugiparagraf">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, iusto. Placeat ducimus quo quae suscipit explicabo, doloremque, dignissimos officia tempore, delectus neque quod sint quis deleniti dolorum repellendus iure dicta. Culpa atque sunt totam, asperiores similique eveniet, nihil illum nemo inventore at aperiam quidem delectus illo vel a esse repudiandae incidunt labore libero commodi? Corrupti harum facere eligendi commodi sed. Sunt fugiat tenetur repudiandae tempora aperiam reiciendis beatae debitis minus eum consequatur suscipit odio, ipsum, aliquam ipsam qui veniam repellendus animi incidunt nihil unde! Veniam, iure expedita impedit libero, at corporis nesciunt eos, deserunt est doloremque molestias voluptatem odio modi.</p>
+                <img src="./elephant.png">
+            <p id="treciparagraf">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam sapiente aperiam ab mollitia repellendus odit rerum officia error culpa architecto consequuntur ipsam commodi placeat adipisci, cumque qui ad. Voluptatibus recusandae iste sint eveniet unde explicabo incidunt maxime. Repellat reiciendis numquam, doloremque blanditiis aut illum? Nulla, optio exercitationem impedit doloremque quod nobis quaerat. Deserunt esse veritatis autem amet repellendus sit iusto ut libero, ducimus minima. Fugiat debitis omnis eius sapiente nam recusandae. Amet suscipit nostrum delectus, labore corrupti perferendis neque consectetur dolor rem mollitia nemo reprehenderit quae quod autem consequatur omnis sit est, ea, repudiandae fuga repellendus! Sapiente delectus dolor nihil.</p>
+                Ako kliknete <a id="eto" href="http://www.google.com" target="_blank">ovde</a> mozete otici na google stranicu u novom prozoru.
+            <p class="myp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quae. Voluptates quo ullam fuga amet, tempore magnam quasi cumque laboriosam, officiis dolorem reiciendis voluptatibus mollitia! Ex modi necessitatibus dolorum suscipit cum. Facere, veritatis ab autem, veniam et pariatur voluptas possimus dicta dolor maxime ipsa officiis! Perferendis quisquam voluptatem ut corrupti, nulla sunt? Rerum nesciunt tenetur totam similique quas qui incidunt. Asperiores inventore consequatur voluptas consequuntur? Quam eos assumenda qui ipsa, modi dolorem quaerat tenetur odit eum voluptate iure aperiam ducimus nulla doloribus recusandae repudiandae eveniet unde harum accusantium perspiciatis natus omnis? Repellendus impedit placeat repellat. Enim, consequatur eaque! Quia, blanditiis?</p>
+            <p class="myp">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam, quos qui temporibus rem maiores tempora cumque distinctio, eos non doloremque nihil quas voluptates molestias aperiam ipsa enim nemo amet at sequi, facilis officia provident? Nihil blanditiis consequuntur, quod, necessitatibus animi nostrum dolores maiores ducimus magnam facere eos ipsum quam pariatur, iste iure aliquam velit repellat corporis magni deleniti modi? Itaque, ab. Eaque placeat, adipisci quasi quos earum, iure illo facere aut accusantium soluta maxime, ducimus vitae a recusandae quia aliquam nulla optio? In, reiciendis nobis. Odio, molestias blanditiis. Officiis explicabo sequi fuga eaque quisquam nihil est? Voluptatibus pariatur accusamus impedit?</p>
+
+        <h1 class="dn">Drugi naslov</h1>
+        <h1 id="naslov">Naslov sa IDem</h1>
+
+    </body>
+</html>

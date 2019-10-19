@@ -1,0 +1,19 @@
+*{margin: 0;
+padding:0;
+box-sizing: border-box;}
+
+.navbar1 {float: left;}
+.navbar li {list-style-type: none;
+            width:20%;
+            text-align: center;
+            background-color: #303030;
+            }
+.navbar li a {text-decoration: none;
+              color:white;
+              display: block;
+              padding: 15px;
+              border-right: 2px solid blanchedalmond;}
+.pokazese {display:none;}
+.pokaze1:hover .pokazese {display:block;}
+.navbar1 a:hover {background-color: white;
+                color: red;}

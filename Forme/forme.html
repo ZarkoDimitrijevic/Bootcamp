@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML forme</title>
+        <style>
+            body {width:100%;
+                 font-size: 20px;}
+            form {width:100%;
+                  margin-left: auto;
+                  margin-right: auto;
+                  background-color: orange;
+                  width: 400px;}
+            legend {font-size: 110%;
+                    font-weight: bold;
+                    background-color: goldenrod;}
+            
+            fieldset {background-color: lightgreen;}
+            .dugme {background-color: yellow;}
+            .dugme:hover {background-color:purple;}
+            .dugme:active {background-color:brown;}
+            input {border-radius:4px;
+                   display: inline;}
+            input:focus {border: 3px solid red;
+                         border-radius:4px;} /*zanimljiv ovaj fokus, kad si na necemu fokusiran, odnosno kad na neko input polje kliknes, on ispise border*/
+            div {padding: 5px;}
+            
+        </style>
+    </head>
+    <body>
+        <form action="">
+            <fieldset>
+                <legend>Licni podaci</legend>
+
+                <div>
+                    <label>Ime</label>
+                    <input type="text" value="Unesite Ime"><!--value je podrazumevana vrednost koja se javlja ali koja moze da se menja-->
+
+                </div>
+
+                <div>
+                    <label>Prezime</label>
+                    <input type="text" placeholder="Unesite prezime"><!--razlika izmedju value i placeholdera je u tome sto placeholder na salje vrednost formi-->
+                </div>
+
+                <div>
+                    <label for="">Pol</label>
+                    <input type="radio" name="pol" value="z">Zenski
+                    <input type="radio" name="pol" value="m">Muski
+                    <input type="radio" name="pol" value="d" checked>Drugo
+                </div>
+
+                <div>
+                    <label>E-mail</label>
+                    <input type="email"><!--Veoma je bitno uneti tip email zbog php-a kasnije-->
+                </div>
+
+                <div>
+                    <label>Lozinka</label>
+                    <input type="password" maxlength="5"><!--maxlength meni isto ne radi-->
+                </div>
+
+                <div>
+                    <label>Godine</label>
+                    <input type="number" min="18" max="30" step="0.2"><!--I tako si rekao da mozes da uneses samo brojeve i utvrdio si max, min i step-->
+                </div>
+
+                <div>
+                    <label for="">Hidden</label>
+                    <input type="hidden">
+                </div>
+
+                <div>
+                    <label for="">URL</label>
+                    <input type="url">
+                </div>
+
+                <div>
+                    <label for="">Datum</label>
+                    <input type="date" min="2017-10-07" max="2019-10-08" step="3"><!--Mozes da odredis startni datum i krajnji kao i step-->
+                </div>
+
+                <div>
+                    <label for="">Vreme</label>
+                    <input type="time">
+                </div>
+
+                <div>
+                    <label for="">Vas CV:</label>
+                    <input type="file"><!--Napravi za domaci da se promeni no file chosen u srpski nema fajlova u java scriptu-->
+                </div>
+
+                <div>
+                    <label for="">Motivaciono pismo</label>
+                    <textarea name="" id="" cols="30" rows="10" maxlength="10"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Ostale informacije</legend>
+                <div>
+                    <label for="">Unesite omiljenu boju</label>
+                    <input type="color" value="#ff0000">
+                </div>
+
+                <div>
+                    <label for="">Odaberite kurs</label>
+                    <input type="radio" name="kurs" value="php" checked><!--radio button mozes da odaberes od vise ponudjenih, ne moze vise njih. U okviru iste grupe svi moraju da imaju isti name. Value je vrednost koji nosi taj radio. Checked je po defaultu da si ga stavio da bude cekirano-->PHP
+                    <input type="radio" name="kurs" value="QA"> QA (Testiranje softvera)
+                    <input type="radio" name="kurs" value="Java"> Java
+                </div>
+
+                <div>
+                    <label for="">Alati koje znam da koristim</label>
+                    <input type="checkbox" name="alati" value="html" checked> HTML
+                    <input type="checkbox" name="alati" value="css"> CSS
+                    <input type="checkbox" name="alati" value="JS"> JavaScript
+                    <input type="checkbox" name="alati" value="SQL"> SQL
+
+                </div>
+            </fieldset>
+
+            <input class="dugme" type="button" value="Klikni" onclick="alert('Obrati paznju')"><!--ALERT je mini prozor u nasem browseru-->
+            <input class="dugme" type="submit" value="Potvrdi"><!--submit moze da se pise iz bez value, i onda ce upisati submit kao default-->
+            <input class="dugme" type="reset" value="Resetuj">
+
+        </form>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="favicon icon" href="./favicon.ico">
+        <style>
+            body {font-family: Arial, Gadget, sans-serif;
+                  font-size: 20px;}
+            div {width: 95%;
+                 margin-left: auto;
+                 margin-right: auto;}
+            .Ilink {color:black;
+                    text-decoration: none;
+                    padding: 10px 40px;
+                    font-family: "Arial Black", Gadget, sans-serif;
+                    font-size: 180%;}
+            .Ilink:hover {background-color: orange;}
+            #IIlink:hover {color: orange;}
+            #IIlink:active {color:blue;
+                            background-color: grey;}
+            img {max-width:15%;
+                max-height:20%;}
+            .strong {font-weight: bold;}
+            .underline {text-decoration: underline;}
+            .green {color: green;}
+            .orange {color: orange;}
+            #tabela1 {width:30%;
+                     vertical-align: middle;
+                     text-align: center;}
+            #tabela2 {width:100%;
+                     vertical-align: middle;
+                     text-align: center;
+                     border-spacing: 10px;}
+        </style>
+    </head>
+
+    <body>
+       <div>
+        <h1 id="pocetna">Dobrodošli na IT Bootcamp!</h1>
+        <table id="tabela1">
+            <th><a class="Ilink" href="#pocetna">Početna</a></th>
+            <th><a class="Ilink" href="#kursevi">Kursevi</a></th>
+            <th><a class="Ilink" href="#kontakt">Kontakt</a></th>
+        </table>
+
+        <table id="tabela2">
+            <tr>
+                <td>Misija</td>
+                <td>Cilj</td>
+                <td>Vizija</td>
+            </tr>
+
+            <tr>
+                <td><img src="./school.jpg"></td>
+                <td><img src="./medal.jpg"></td>
+                <td><img src="./bulb.jpg"></td>
+            </tr>
+
+            <tr>
+                <td>Naša misija je otvaranje mogućnosti napretka motivisanim pojedincima i povećanje produktivnosti sprske privrede kroz kvalifikovanu IT radnu snagu.</td>
+                <td>Škola pruža <span class="strong">besplatno znanje</span> populaciji koja nije imala priliku za formalno IT obrazovanje. Kursevi su fokusirani na praktičnu primenu da bi povećali plasman polaznika na radna mesta.</span> </td>
+                <td>Da omogućimo lak pristup <span class="underline">IT znanju</span> i fer šansu motivisanim pojedincima koji će doprineti da IT industrija Srbije postane regionalni lider.</td>
+            </tr>
+        </table>
+
+        <h1 id="kursevi">Naši kursevi</h1>
+        <ol>
+            <li class="orange">Beograd</li>
+                <ul>
+                    <li class="green">Testiranje softvera</li>
+                    <li>Razvoj web stranica</li>
+                    <li>Osnove programiranja (Java)</li>
+                </ul>
+            <li class="orange">Niš</li>
+                <ul>
+                    <li>Razvoj web stranica</li>
+                    <li class="green">Testiranje softvera (QA)</li>
+                </ul>
+        </ol>
+
+        <p></p>
+        <h1 id="kontakt">Kontakt informacije</h1>
+        <p></p>
+        <h3 class="orange">Fondacija Ana i Vlade Divac</h3>
+        <p></p>
+        Ilije Grasanina 53a/7<br>
+        11120 Beograd, Srbija<br>
+        <a id="IIlink" class="green" href="http://www.divac.com">www.divac.com</a>
+      </div>
+    </body>
+</html>

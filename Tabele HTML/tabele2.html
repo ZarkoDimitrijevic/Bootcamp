@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tabela 1</title>
+        
+        <style>
+            table, td {border: 2px solid black;
+                       border-collapse: collapse;
+                       padding:20px;}
+            #prvispan {color:blueviolet;}
+            table {margin-left: auto;
+                   margin-right: auto;/*ako das samo margin-left: auto, onda ga tera skroz levo i obratno*/
+                   width:100%;
+                   font-size: 30px;
+                   background: url("./pozadina.jpg") no-repeat center/cover;/*slika centrirana preko cele tabele*/}
+            td {text-align: center;
+                vertical-align: middle/*nije center nego middle*/;}
+            tr:hover {background-color:white;
+                      color:indianred;}
+        </style>
+    </head>
+
+    <body>
+        <table>
+          <caption>Naslov tabele</caption> <!--naslov tabele-->
+            <th>Prva</th>
+            <th>Druga</th>
+            <th>Treci</th><!--th ne mora da bude u redu, nisu nuzni tr tagovi, ali ako je to tako, onda se drugacije ponasa, ne pravi linije izmedju th tagova kad ubacis border-->
+            
+            <tr>
+                <td>Prva <span id="prvispan">celija</span></td>
+                <td>Druga celija</td>
+                <td>Treca celija</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            <tr>
+                <td>iha</td>
+                <td rowspan=2>aha</td>
+                <td>oha</td>
+            </tr>
+            <tr>
+                <td>eee</td>
+                <td>aaa</td>
+            </tr>
+
+            
+        </table>
+    </body>
+</html>

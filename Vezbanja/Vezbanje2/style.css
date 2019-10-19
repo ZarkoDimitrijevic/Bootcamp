@@ -1,0 +1,22 @@
+*{margin:0;
+padding:0;
+box-sizing: border-box;}
+.meni{float:left;
+      width: 25%;
+      text-align: center;
+    list-style-type: none;
+    
+    border-right: 2px solid white;
+    background-color: black;
+    }
+a {text-decoration: none;
+    display: block;
+    color: white;
+    padding: 15px;}
+a:hover {color: black;
+        background-color: white;}
+.podmeni {display: none;}
+.pada:hover .podmeni {display: block;}
+input {float: right;
+    display: block;}
+

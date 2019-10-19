@@ -1,0 +1,136 @@
+*{margin:0;
+  padding:0;}
+#osnova {position: relative;
+        background-image: url(../images/lego_pizza.jpg);
+        height: 120px;
+        background-position:0px -160px;/*kada imamo vecu sliku od onoga sto hocemo za header, mi koristimo ovo da isecemo sliku bas tamo gde treba, preko sredine, malo levo, malo desno, kao da je slika jedan layout, a header drugi pa namestas gde ti se svidja. Vrednosti su x i y osa i mogu biti negativne.*/
+        background-repeat: repeat-x;/*moze da bude repeat, repeat-x, repeat-y, no-repeat*/
+        font-size: 32px;
+        font-weight: bold;
+        color: white;
+        z-index:1;
+        /*Position - specificira poziciju elementa na stranici
+        
+        Pozicija moze biti static, relative, absolute, fixed ili sticky, a potom da se pozicionira koristeci top, bottom, left i right svojstva.
+        
+        Moguce vrednosti:
+         - static - podrazumevana vrednost
+         - relative: relativno u odnosu na svoju normalnu poziciju, odnosno ono sto bi uobicajeno imao kroz html kod
+         - fixed - fiksira se na jednom mestu, tako da gde god ti da skrolujes, on je na jednom mestu
+         - absolute - apsolutno u odnosu na najblizeg pretka koji ima podesenu poziciju, to je zapravo pozicioniranje elementa u drugom elementu. Ako nema parenta, onda se podesava u odnosu na body.
+         - sticky - ne radi u nekim verzijama browserima. On je kombinacija relativnog i fixed, recimo imas sliku na sredini, skrolas do nje, a kad dodjes do nje ona se ponasa fixed.*/
+        }
+#prvi {width:100%;
+            position: absolute;
+            text-align: center;
+            top:40%;
+            text-shadow: 0px 0px 6px rgb(0 0 0); /*prva vrednost - levo, desno ide senka; druga vrednost gore, dole ide senka; treca vrednost sve je veci blur; rgb je spektar boja*/}
+        /*Ako se dva elementa preklapaju, koristi se z-index da se utvrdi koji ce prvi da se prikaze.
+        Z osa ide od ekrana prema nama. Elementi sa vecim z-indeksom se prikazuju ispred onih koji imaju manju vrednost.
+        Da bi radio z-index, mora da bude podesena pozicija.
+        z-indeks ne mora da ide redom, znaci ne mora 1, 2, 3 i dr., nego je bitno koji je manji/veci*/
+#preklapa {position: absolute;
+           width: 50px;
+           height: 50px;
+           top: 10px;
+           left: 30px;
+           background-color: greenyellow;
+           color:red;
+           z-index:2;
+           overflow: auto;
+           display: none;}
+h5, h2 {display:none;}
+        /*Svojstvo overflow odredjuje sta se desava sa sadrzajem elementa ako su dimenzije elementa manje od njegovog sadrzaja. Pr: tekst je od velicine diva mnogo veci.
+         - visible - sadrzaj se prikazuje van utvrdjenih granica
+         - hidden - visak sadrzaja se odseca, ne vidi se
+         - scroll - visak sadrzaja se odseca, ali se prikazuje ostatak putem scrolla. Cak i kad nema viska, on ce da napravi scroll.
+         - auto - on pravi scroll samo kad je to neophodno da bi se video visak*/
+
+         /*Svojstvo display je najvazniji svojstvo kontrolisanja izgleda stranice.
+         Odredjuje da li se element prikazuje na stranici i na koji nacin.
+         Moguce vrednosti:
+         - block: blokovski prikaz elemenata (zauzima citavu sirinu ekrana, a moguce je podesitini sirinu i visinu elementa).
+         - inline: redovski prikaz elementa (zauzima samo onoliko prostora koliko da prikaze sadrzaj, ne moze se podesiti sirina i visina).
+         Pojedini elementi su po defaultu block, a pojedini inline. Primer je <h1>, <h2> ... oni su blokovski. Zauzimaju citavu sirinu ekrana. Ti kad ih pises u htmlu oni se redjaju jedan ispod drugog.
+         Tabela, slika, span, input type ... su po defaultu inline.
+         - none: element se ne prikazuje
+         - inline-block: kao inline, zauzima samo onoliko prostora koliko mu treba, ali moze da se podesi sirina i visina*/
+
+         /*Svojstvo float odredjuje redosled po koje se redja (pluta) element na stranici.
+         Moguce vrednosti:
+         - left: element se redja levo u odnosu na element koji ga sadrzi, i to je zanimljivo jer umesto recimo za li koji je u ULu da stavis display inline pa float left, ti kazes samo float left i oni se svi nabijaju na levo, kao prasici, prvo ide prvi, pa drugi i tako redom.
+         - right: element se redja od desne ivice u odnosu na element koji ga sadrzi
+         - none: podrazumevana vrednost
+         - inherit: nasledjuje vrednost od sledeceg elementa roditelja*/
+
+         /*Svojstvo clear odredjuje koji elemenit mogu da plutaju pored elemtna sa podesenim svojstvom i sa koje strane.
+         Moguce vrednosti:
+         - none: podrazumevana vrednost, i podrazumeva da mogu da se redjaju elementi i levo i desno u odnosu na njega
+         - left: ne dozvoljava redjanje sa leve strane u odnosu na element
+         - right: ne dozvoljava redjanje sa desne strane u odnosu na element
+         - both: ne dozvoljava redjanje sa leve i desne strane.*/
+
+         /*Kad koristis overflow, moras da koristis i float i obratno*/
+nav ul {list-style: none;
+        background-color: #303030;
+        overflow: hidden;}
+nav li {float: left;
+        width: 25%;
+        display: inline;}
+nav li a {color:white;
+          padding: 14px 16px;
+          text-decoration: none;
+          display: block;
+         text-align: center;
+        border-right: 2px solid #bababa;}
+nav li a:hover {background-color: red;
+                font-weight: bold;}
+.topbar {position: fixed;
+        top:0px;
+        z-index:100;
+        width:100%;}
+#rest {position: relative;
+       top:46px;
+       width:100%;}
+.dropdown_content {position: absolute;
+                   width: 25%;
+                   background-color: #f9f9f9;
+                   display: none;}
+.dropdown_content a {color:black;
+                    text-align: left;}
+.dropdown_content a:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown_content {display: block;}/*Zanimljivo. Rekli smo elementu da se ne vidi, display: none. Onda smo njegovom parent (visem) elementu rekli kad je hover display:block i na taj nacin ga naterali da ponisti daj display: none.*/
+.left_panel_float {float:left;
+                   display:block;
+                    width:20%;
+                    clear:left;
+                    text-align: left;}
+.left_panel_float a {color:white;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                    display: block;
+                    text-align: center;
+                    border-right: 2px solid #bababa;}
+
+.right_panel_float {float:right;
+                    width:75%;
+                    clear: right;}
+aside ul {list-style-type: none;
+          margin-top: 10px;}
+
+aside li a {text-decoration: none;
+            color: white;
+            background-color: #33b5e5;
+            display: block;
+            margin-bottom: 8px;
+           padding: 8px;}
+aside li a:hover {background-color: #0099cc;}
+
+.slike {padding: 20px 0px;
+        text-align: center;}
+.obrada {display: flex;
+        flex-basis: row;
+        justify-content: space-around;}
+.slike1 {text-align: justify;}
+img {width: 80%;
+     padding-top: 5px;}

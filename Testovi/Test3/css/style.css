@@ -1,0 +1,118 @@
+*{box-sizing:border-box;}
+            
+body {width:100%;
+    margin:0px;}
+.starnight {width:100%;
+        background-image: url("../images/starnight.jpg");}
+#naslov {color:white;
+        margin:0px;
+        padding:0px;
+        text-align:center;
+        padding-top:30px;
+        padding-bottom:15px;}
+#podnaslov {color:white;
+            margin:0px;
+            padding:0px;
+            text-align:center;
+            position:relative;
+            bottom: 0px;}
+.meni {display:block;
+    background-color:#321bb5;
+     color:white;
+     padding:0px 0px;
+    margin:0px;}
+    
+a {text-decoration: none;
+    color:white;
+     display:block;
+    text-align:center;}
+ li {list-style-type:none;
+     margin-left:0px;
+     margin-right:10px;
+     margin-top:0;
+     margin-bottom:0;
+     padding-left:0;
+     display:block;}
+ a:hover {background-color:gray;
+         color: black;}
+.dole {width:100%;
+       text-align:center;
+       background-color:#321bb5;
+       color: white;
+       position: fixed;
+       bottom:0px;}
+.slika {text-align:center;
+        padding-bottom:30px;}
+
+
+
+@media only screen and (min-width: 600px) {
+*{box-sizing:border-box;}
+
+body {width:100%;
+    margin:0px;}
+.starnight {width:100%;
+        background-image: url("../images/starnight.jpg");}
+#naslov {color:white;
+        margin:0px;
+        padding:0px;
+        text-align:center;
+        padding-top:30px;
+        padding-bottom:15px;}
+#podnaslov {color:white;
+            margin:0px;
+            padding:0px;
+            text-align:center;
+            position:relative;
+            bottom: 0px;}
+.meni {display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background-color:#321bb5;
+      color:white;
+      padding:0px 0px;
+      margin:0px;
+    }
+.levipodmeni {display:flex;
+             flex-direction: row;
+             justify-content:space-around;
+             margin-left:0px;
+             padding-left:0px;
+             
+             
+            }
+
+a {text-decoration: none;
+   color:white;
+    display:block;}
+li {list-style-type:none;
+    margin-left:0px;
+    margin-right:10px;
+    margin-top:0;
+    margin-bottom:0;
+    padding-left:0;
+    display:block;}
+a:hover {background-color:gray;
+        color: black;}
+.dole {width:100%;
+        text-align:center;
+        background-color:#321bb5;
+        color: white;
+        position: fixed;
+        bottom:0px;}
+.levi {width:75%;
+        margin:10px;
+        padding-bottom:50px;}
+.desni {width:25%;
+        margin:10px;}
+.centralnideo {width:100%;
+              display:flex;
+              flex-direction:row;
+              margin:20px;}
+.slika {text-align:center;
+    padding-bottom:20px;}
+
+}  
+
+
+

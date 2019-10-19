@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback forma</title>
+    <link rel="favicon icon" href="./favicon.ico">
+    <meta charset="UTF-8">
+    
+    <style>
+        body {width: 80%;
+              margin-left: auto;
+              margin-right: auto;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+        .uvuceno {padding-left: 10%;}
+        .gore {padding-top:0.9%; 
+               padding-bottom:0.9%;}
+        p {padding-left: 5%;}
+        span {padding-right: 4%;}
+        #poseban {padding-right: 2%;}
+        .dole {padding-left:7%;}
+        .dugmad {padding-left:10%;}
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>Podaci za logovanje</legend>
+            <p></p>
+            <div class="uvuceno gore">
+                <label for="">Ime:</label>
+                <input type="text" name="" id="" maxlength="16">
+            </div>
+            <div class="uvuceno gore">
+                <label for="">Email:</label>
+                <input type="email" name="" id="" maxlength="40">
+            </div>
+            <div class="uvuceno gore">
+                <label for="">Lozinka:</label>
+                <input type="password" name="" id="" maxlength="20">
+            </div>
+            <p></p>
+        </fieldset>
+
+        <fieldset>
+            <legend>Podaci o Vama</legend>
+            <div class="uvuceno">
+                <label for="">Molimo Vas da oznacite sva polja sa kojim bi se složili</label>
+                <p><span>Ljut</span><input type="checkbox" name="raspolozenje" id="Ljut"></p>
+                <p><span>Tuzan</span><input type="checkbox" name="raspolozenje" id="Tuzan"></p>
+                <p><span>Srecan</span><input type="checkbox" name="raspolozenje" id="Srecan" checked></p>
+                <p><span>Nedefinisano</span><input type="checkbox" name="raspolozenje" id="Nedefinisano"></p>
+            </div>
+            <div class="uvuceno">
+                <label for="">Koliko ste zadovoljni nasom uslugom?</label>
+                <p><span>Veoma zadovoljan</span><input type="radio" name="ocenausluge" id="vz"></p>
+                <p><span>Zadovoljan</span><input type="radio" name="ocenausluge" id="z"></p>
+                <p><span>Nije mi bilo vazno da obracam paznju</span><input type="radio" name="ocenausluge" id="nb"></p>
+                <p><span>Nisam zadovoljan</span><input type="radio" name="ocenausluge" id="nz"></p>
+                <p><span>Veoma nezadovoljan</span><input type="radio" name="ocenausluge" id="vn"></p>
+            </div>
+            <div class="uvuceno">
+                <label for=""><span id="poseban">Druge napomene:</span></label>
+                <textarea name="drugo" id="napomene" cols="35" rows="5"></textarea>
+            </div>
+        </fieldset>
+        <p></p>
+        <div class="dole">
+            <label for="">Tvoja slika:</label>
+            <button onclick="document.getElementById('getFile').click()">Odaberite sliku</button>
+            <input type='file' id="getFile" style="display:none">
+        </div>
+        <p></p>
+        <div class="dole">
+            <label for="">Posecene lokacije:</label>
+            <select name="lokacije">
+                <option value="odaberi">Odaberi lokaciju</option>
+                <option value="Nis" id="">Nis</option>
+                <option value="Beograd" id="">Beograd</option>
+                <option value="Novi Sad" id="">Novi Sad</option>
+                <option value="inostranstvo" id="">inostranstvo</option>
+                <option value="kosmos" id="">kosmos</option>
+            </select>
+        </div>
+        <p></p>
+        <div class="dugmad">
+            <input type="submit" value="Posalji">
+        </div>
+        <p></p>
+        <div class="dugmad">
+            <input type="reset" value="Ponisti">
+        </div>
+                
+    </form>
+</body>
+</html>

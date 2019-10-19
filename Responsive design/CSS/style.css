@@ -1,0 +1,52 @@
+* {margin:0px;
+   padding:0px;
+   box-sizing: border-box;/*Pricali smo da je width samo sirina elementa. Kad stavimo box-sizing: border-box, onda je width sam width+padding+border+margin*/}
+.navbar {width:100%;
+    background-color: #303030;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;}
+.navbar li {
+         list-style-type: none;
+        text-align: center;}
+.navbar a{text-decoration: none;
+         color: white;
+        display: block;
+        padding: 14px 16px;}
+.navbar a:hover {background-color: white;
+                 color:black;
+                font-weight: bold;}
+.fa {margin-right: 5px;}
+[class*="col-"] img {max-width: 100%;}/*Ovim smo selektovali atribut: klasu ciji nazivi pocinju *=, to je znak za pocinju, na col- sto je u navodnicima.*/
+/*Objasnjeno kako da se selektuje vise stvari po atributu, odnosno po klasama ciji nazivi pocinju istim nazivima.*/
+/*ti nacini se zovu WILDCARD*/
+.row {display: block;
+      width: 100%;
+      padding: 0 8px;}
+/*Kao sto se float left koristi UVEK U KOMBINACIJI sa overflow hidden, tako se sa klasama col koristi before i after tog diva sa tim klasama*/
+.row::before, .row::after {clear: both;
+                           display: table;
+                           content: "";}
+
+@media only screen and (min-width: 600px) { 
+    .navbar li {float: left;}
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+    [class*="col-"] {float: left;
+        padding: 15px;} /*Ovo je takodje WILDCARD*/
+}
+
+@media only screen and (max-width: 500px) {
+    .navbar li a {color: red;}
+}

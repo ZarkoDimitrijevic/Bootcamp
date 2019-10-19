@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tabela 1</title>
+        
+        <style>
+            .jedan/*klasa za tabelu*/  {border: 2px solid black;
+                       border-collapse: collapse;
+                       padding:20px;}
+            #prvispan {color:blueviolet;}
+            .jedan {margin-left: auto;
+                   margin-right: auto;/*ako das samo margin-left: auto, onda ga tera skroz levo i obratno*/
+                   width:100%;
+                   font-size: 30px;
+                   background: url("./pozadina.jpg") no-repeat center/cover;/*slika centrirana preko cele tabele*/}
+            td {text-align: center;
+                vertical-align: middle/*nije center nego middle*/;
+                border: 2px solid blue;}
+            
+            tr.red:nth-child(even) {background-color: red;}/*parne redove u tabeli bojimo*/
+            tr.red:nth-child(odd) {background-color: royalblue;}
+            tr.red:nth-child(3) {background-color: sienna;}/*ovde bojimo samo treci red, ali on kao red broji i th koji nismo zamotali u red*/
+
+            tr:hover {background-color:white;
+                      color:indianred;}
+            tr.red:nth-child(5):hover {background-color: yellow;}
+            #sredina {text-align:center;}
+
+            #zadatakII {background:url("./pozadina.jpg") no-repeat center/cover;
+                        width: 100%;
+                        border:10px solid blue;
+                        border-collapse:separate;
+                        border-spacing: 5px;
+                        font-size: 40px;
+                        font-style: oblique;
+                        color: white;}
+            
+        </style>
+    </head>
+
+    <body>
+        <table class="jedan">
+          <caption>Naslov tabele</caption> <!--naslov tabele-->
+            <th>Prva</th>
+            <th>Druga</th>
+            <th>Treci</th><!--th ne mora da bude u redu, nisu nuzni tr tagovi, ali ako je to tako, onda se drugacije ponasa, ne pravi linije izmedju th tagova kad ubacis border-->
+            
+            <tr class="red">
+                <td>Prva <span id="prvispan">celija</span></td>
+                <td>Druga celija</td>
+                <td>Treca celija</td>
+            </tr>
+
+            <tr class="red">
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            <tr class="red">
+                <td>iha</td>
+                <td rowspan=2>aha</td>
+                <td>oha</td>
+            </tr>
+            <tr class="red">
+                <td>eee</td>
+                <td>aaa</td>
+            </tr>
+        </table>
+
+        <table class="jedan">
+           <caption>Prvi zadatak</caption>
+            <tr class="red">
+                <td colspan=3 id="sredina">1</td>
+            </tr>
+            <tr class="red">
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr class="red">
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </table>
+        <table class="jedan">
+           <caption>Drugi zadatak</caption>
+            <tr class="red">
+                <td>1</td>
+                <td>2</td>
+                <td rowspan=3>3</td>
+            </tr>
+            <tr class="red">
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr class="red">
+                <td>6</td>
+                <td>7</td>
+            </tr>
+        </table>
+
+       
+
+        <table id="zadatakII">
+          <caption>Zadatak sa table</caption>
+            <tr>
+                <td rowspan=2>Empno</td>
+                <td colspan=4>Marks</td>
+            </tr>
+            <tr>
+                <td>Sec A</td>
+                <td>Sec B</td>
+                <td>Sec C</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>24</td>
+            </tr>
+        </table>
+
+    </body>
+</html>

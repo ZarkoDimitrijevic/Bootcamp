@@ -1,0 +1,68 @@
+*{box-sizing: border-box;}
+body {margin:0px;
+    padding: 0px;
+    width:100%}
+header {background-image: url('slike/starnight.jpg');
+        margin:0px;
+        padding:0px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: space-between;
+        width:100%;}
+#nevidljivi {margin: 0;
+            padding:0;}
+h1 {color:white;
+    margin:0;
+    padding:5px;
+    text-align: center;}
+#datumivreme {margin:0px;
+            bottom: 0;
+            text-align: center;}
+ul {margin:0px;
+    padding:0px;}
+a {text-decoration: none;
+   display:block;
+    margin:0;
+    padding:5px;
+    color:white;}
+li {list-style-type: none;
+    margin:0;
+    padding:0px 0px;
+    text-align: center;
+    background-color: midnightblue;}
+
+a:hover {background-color: slategrey;
+    color:black;}
+
+h3 {text-align: center;}
+.slika {text-align:center;}
+
+.blue {color:blue;}
+.red {color:red;}
+.green {color:green;}
+
+footer {width:100%;
+        background-color: midnightblue;
+        text-align: center;
+        position:fixed;
+        bottom:0px;}
+h4 {color:white;}
+
+
+
+    @media only screen and (min-width:600px) {
+ul {display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: midnightblue;}
+.levimeni {float:left;}
+.desnimeni {float:right;}
+section {width:75%;
+        float:left;
+        margin-bottom:100px;}
+aside {width:25%;
+        float:right;}
+
+}
