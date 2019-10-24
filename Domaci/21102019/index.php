@@ -22,7 +22,7 @@
     $proizvodsredjen = number_format($proizvod, 2, ",", ".");
     echo "<br>Proizvod brojeva od 1 do 20 je: $proizvodsredjen<br>";
     
-
+    $i=1;
     while($g>=$i) {
         $zbir = $zbir + $i;
         $i++;

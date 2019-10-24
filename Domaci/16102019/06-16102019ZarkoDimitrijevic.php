@@ -126,7 +126,7 @@ a:hover {color:white;}
                 $kcal=$_GET['kalorije'];
                 $kj=$kcal*4.1868;
                 if($kj<2000) {echo "<div class='odgovor'>Povecajte dnevni unos!</div>";}
-                elseif($kj<4000) {echo "<div class='odgovor'>Smanjite dnevni unos!</div>";}
+                elseif($kj>4000) {echo "<div class='odgovor'>Smanjite dnevni unos!</div>";}
                 else {echo "<div class='odgovor'>Dnevni unos je u redu.</div>";}
             }
         ?>
