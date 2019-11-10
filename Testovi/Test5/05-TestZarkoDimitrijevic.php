@@ -11,23 +11,85 @@
     <body>
     
         <?php
-    /*strpos(string,what to find (string),start position) function finds the position of the first occurrence of a string inside another string.
-    strrpos() - Finds the position of the last occurrence of a string inside another string (case-sensitive)
-    stripos() - Finds the position of the first occurrence of a string inside another string (case-insensitive)
-    strripos() - Finds the position of the last occurrence of a string inside another string (case-insensitive)
+        //Uvod
+        $visine=array(204, 191, 199, 188, 194, 199, 205, 210);
+        echo "<p> Za dati niz: ";
+        function ispisNiz($n) {
+            foreach($n as $element) {
+                echo $element , ", ";
+            }
+        }
+        ispisNiz($visine);
+        echo "slede resenja zadataka:</p>";
 
-    substr(string,
-           start(Required. Specifies where to start in the string 
-                A positive number - Start at a specified position in the string
-                A negative number - Start at a specified position from the end of the string
-                0 - Start at the first character in string),
-            length(Optional. Specifies the length of the returned string. Default is to the end of the string.
-                    A positive number - The length to be returned from the start parameter
-                    Negative number - The length to be returned from the end of the string
-                    If the length parameter is 0, NULL, or FALSE - it return an empty string))
-    
-    strlen(string) - Returns the length of a string (in bytes) on success, and 0 if the string is empty
-    */
+        //Prvi zadatak
+        echo "<p>PRVI ZADATAK</p>";
+        $visine=array(204, 191, 199, 188, 194, 199, 205, 210);
+        function prosecnaVisina($n) {
+            $zbir=0;
+            $brojac=0;
+            foreach($n as $pojedinacno) {
+                $zbir=$zbir+$pojedinacno;
+                $brojac++;
+            }
+            return $zbir/$brojac;
+        }
+
+        echo "<p>Funkcija vraca prosecnu visinu sportista koja iznosi: " . prosecnaVisina($visine) . " centimetara.</p>";
+
+        //Drugi zadatak
+        echo "<p>DRUGI ZADATAK</p>";
+        $visine=array(204, 191, 199, 188, 194, 199, 205, 210);
+        $boja1 = "red";
+        $boja2 = "blue";
+        function natprosecnoVisoki($n, $boja1, $boja2) {
+            foreach($n as $pojedinacno) {
+                if($pojedinacno > prosecnaVisina($n)) {
+                    echo "<p style=color:$boja1>$pojedinacno</p>";
+                }else {echo "<p style = color:$boja2>$pojedinacno</p>";}
+            }
+        }
+
+        natprosecnoVisoki($visine, $boja1, $boja2);
+
+        //Treci zadatak
+        echo "<p>TRECI ZADATAK</p>";
+        $visine=array(204, 191, 199, 188, 194, 199, 205, 210);
+        function brojac($n) {
+            $brojac=0;
+            foreach($n as $pojedinacno) {
+                $brojac++;
+            }
+            return $brojac;
+        }
+        $brojElemenata = brojac($visine);
+        
+        $a=array();
+        for($i=0; $i<$brojElemenata-1; $i++) {
+            echo $a[]=$visine[$i]+$visine[$i+1] . ", ";
+        }
+        
+        //Cetvrti zadatak
+        echo "<p>CETVRTI ZADATAK</p>";
+        $visine=array(204, 191, 199, 188, 194, 199, 205, 210);
+        
+        function trenerVidi($n) {
+            $brojac=1;//jer uvek vidi prvog
+            $naredna_visina=0;
+            $prva_visina=$n[0];
+            foreach($n as $visine) {
+                if($visine>$prva_visina && $visine>$naredna_visina) {
+                    $brojac++;
+                    $naredna_visina=$visine;
+                }
+                
+            }
+            return $brojac;
+        }
+        echo "<p>Broj sportista koje trener moze da vidi je: " . trenerVidi($visine) . "</p>";
+
+        
+        
     ?>
     </body>
 </html>
