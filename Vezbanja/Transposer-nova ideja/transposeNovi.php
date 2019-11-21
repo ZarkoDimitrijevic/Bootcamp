@@ -26,54 +26,131 @@
         $akordi=array('C ', 'C# ', 'D ', 'D# ', 'E ', 'F ', 'F# ', 'G ', 'G# ', 'A ', 'B ', 'H ',
                       '  C', '  C#', '  D', '  D#', '  E', '  F', '  F#', '  G', '  G#', '  A', '  B', '  H',
                     ' C/', ' C#/', ' D/', ' D#/', ' E/', ' F/', ' F#/', ' G/', ' G#/', ' A/', ' B/', ' H/',
-                                                'Cis','Dis','Fis','Gis', 
+                    'C,', 'C#,', 'D,', 'D#,', 'E,', 'F,', 'F#,', 'G,', 'G#,', 'A,', 'B,', 'H,',
+                    'C-', 'C#-', 'D-', 'D#-', 'E-', 'F-', 'F#-', 'G-', 'G#-', 'A-', 'B-', 'H-',
+                    '-C', '-C#', '-D', '-D#', '-E', '-F', '-F#', '-G', '-G#', '-A', '-B', '-H',
+                    'C..', 'C#..', 'D..', 'D#..', 'E..', 'F..', 'F#..', 'G..', 'G#..', 'A..', 'B..', 'H..',
+                    '..C', '..C#', '..D', '..D#', '..E', '..F', '..F#', '..G', '..G#', '..A', '..B', '..H',
+                                                'Cis','Dis','Fis','Gis',
+                                                'Db','Eb','Gb','Ab',
                     'Cm', 'C#m', 'Dm', 'D#m', 'Em', 'Fm', 'F#m', 'Gm', 'G#m', 'Am', 'Bm', 'Hm',
-                    'C7', 'C#7', 'D7', 'D#7', 'E7', 'F7', 'F#7', 'G7', 'G#7', 'A7', 'B7', 'H7');
+                    'Cm', 'Dbm', 'Dm', 'Ebm', 'Em', 'Fm', 'Gbm', 'Gm', 'Abm', 'Am', 'Bm', 'Hm',
+                    'C7', 'C#7', 'D7', 'D#7', 'E7', 'F7', 'F#7', 'G7', 'G#7', 'A7', 'B7', 'H7',
+                    'C7', 'Db7', 'D7', 'Eb7', 'E7', 'F7', 'Gb7', 'G7', 'Ab7', 'A7', 'B7', 'H7');
         
         //menjamo durove u brojeve
-        $pesma = str_replace('C ', 1, $pesma);
-        $pesma = str_replace('C# ', 2, $pesma);
-        $pesma = str_replace('D ', 3, $pesma);
-        $pesma = str_replace('D# ', 4, $pesma);
-        $pesma = str_replace('E ', 5, $pesma);
-        $pesma = str_replace('F ', 6, $pesma);
-        $pesma = str_replace('F# ', 7, $pesma);
-        $pesma = str_replace('G ', 8, $pesma);
-        $pesma = str_replace('G# ', 9, $pesma);
-        $pesma = str_replace('A ', 10, $pesma);
-        $pesma = str_replace('B ', 11, $pesma);
-        $pesma = str_replace('H ', 12, $pesma);
+        $pesma = str_replace('C ', '1 ', $pesma);
+        $pesma = str_replace('C# ', '2 ', $pesma);
+        $pesma = str_replace('D ', '3 ', $pesma);
+        $pesma = str_replace('D# ', '4 ', $pesma);
+        $pesma = str_replace('E ', '5 ', $pesma);
+        $pesma = str_replace('F ', '6 ', $pesma);
+        $pesma = str_replace('F# ', '7 ', $pesma);
+        $pesma = str_replace('G ', '8 ', $pesma);
+        $pesma = str_replace('G# ', '9 ', $pesma);
+        $pesma = str_replace('A ', '10 ', $pesma);
+        $pesma = str_replace('B ', '11 ', $pesma);
+        $pesma = str_replace('H ', '12 ', $pesma);
         
-        $pesma = str_replace('  C', 1, $pesma);
-        $pesma = str_replace('  C#', 2, $pesma);
-        $pesma = str_replace('  D', 3, $pesma);
-        $pesma = str_replace('  D#', 4, $pesma);
-        $pesma = str_replace('  E', 5, $pesma);
-        $pesma = str_replace('  F', 6, $pesma);
-        $pesma = str_replace('  F#', 7, $pesma);
-        $pesma = str_replace('  G', 8, $pesma);
-        $pesma = str_replace('  G#', 9, $pesma);
-        $pesma = str_replace('  A', 10, $pesma);
-        $pesma = str_replace('  B', 11, $pesma);
-        $pesma = str_replace('  H', 12, $pesma);
+        $pesma = str_replace('  C', ' 1', $pesma);
+        $pesma = str_replace('  C#', ' 2', $pesma);
+        $pesma = str_replace('  D', ' 3', $pesma);
+        $pesma = str_replace('  D#', ' 4', $pesma);
+        $pesma = str_replace('  E', ' 5', $pesma);
+        $pesma = str_replace('  F', ' 6', $pesma);
+        $pesma = str_replace('  F#', ' 7', $pesma);
+        $pesma = str_replace('  G', ' 8', $pesma);
+        $pesma = str_replace('  G#', ' 9', $pesma);
+        $pesma = str_replace('  A', ' 10', $pesma);
+        $pesma = str_replace('  B', ' 11', $pesma);
+        $pesma = str_replace('  H', ' 12', $pesma);
 
-        $pesma = str_replace('C/', 1, $pesma);
-        $pesma = str_replace('C#/', 2, $pesma);
-        $pesma = str_replace('D/', 3, $pesma);
-        $pesma = str_replace('D#/', 4, $pesma);
-        $pesma = str_replace('E/', 5, $pesma);
-        $pesma = str_replace('F/', 6, $pesma);
-        $pesma = str_replace('F#/', 7, $pesma);
-        $pesma = str_replace('G/', 8, $pesma);
-        $pesma = str_replace('G#/', 9, $pesma);
-        $pesma = str_replace('A/', 10, $pesma);
-        $pesma = str_replace('B/', 11, $pesma);
-        $pesma = str_replace('H/', 12, $pesma);
+        $pesma = str_replace('C/', '1/', $pesma);
+        $pesma = str_replace('C#/', '2/', $pesma);
+        $pesma = str_replace('D/', '3/', $pesma);
+        $pesma = str_replace('D#/', '4/', $pesma);
+        $pesma = str_replace('E/', '5/', $pesma);
+        $pesma = str_replace('F/', '6/', $pesma);
+        $pesma = str_replace('F#/', '7/', $pesma);
+        $pesma = str_replace('G/', '8/', $pesma);
+        $pesma = str_replace('G#/', '9/', $pesma);
+        $pesma = str_replace('A/', '10/', $pesma);
+        $pesma = str_replace('B/', '11/', $pesma);
+        $pesma = str_replace('H/', '12/', $pesma);
+
+        $pesma = str_replace('C,', '1,', $pesma);
+        $pesma = str_replace('C#,', '2,', $pesma);
+        $pesma = str_replace('D,', '3,', $pesma);
+        $pesma = str_replace('D#,', '4,', $pesma);
+        $pesma = str_replace('E,', '5,', $pesma);
+        $pesma = str_replace('F,', '6,', $pesma);
+        $pesma = str_replace('F#,', '7,', $pesma);
+        $pesma = str_replace('G,', '8,', $pesma);
+        $pesma = str_replace('G#,', '9,', $pesma);
+        $pesma = str_replace('A,', '10,', $pesma);
+        $pesma = str_replace('B,', '11,', $pesma);
+        $pesma = str_replace('H,', '12,', $pesma);
+
+        $pesma = str_replace('C-', '1-', $pesma);
+        $pesma = str_replace('C#-', '2-', $pesma);
+        $pesma = str_replace('D-', '3-', $pesma);
+        $pesma = str_replace('D#-', '4-', $pesma);
+        $pesma = str_replace('E-', '5-', $pesma);
+        $pesma = str_replace('F-', '6-', $pesma);
+        $pesma = str_replace('F#-', '7-', $pesma);
+        $pesma = str_replace('G-', '8-', $pesma);
+        $pesma = str_replace('G#-', '9-', $pesma);
+        $pesma = str_replace('A-', '10-', $pesma);
+        $pesma = str_replace('B-', '11-', $pesma);
+        $pesma = str_replace('H-', '12-', $pesma);
+
+        $pesma = str_replace('-C', '-1', $pesma);
+        $pesma = str_replace('-C#', '-2', $pesma);
+        $pesma = str_replace('-D', '-3', $pesma);
+        $pesma = str_replace('-D#', '-4', $pesma);
+        $pesma = str_replace('-E', '-5', $pesma);
+        $pesma = str_replace('-F', '-6', $pesma);
+        $pesma = str_replace('-F#', '-7', $pesma);
+        $pesma = str_replace('-G', '-8', $pesma);
+        $pesma = str_replace('-G#', '-9', $pesma);
+        $pesma = str_replace('-A', '-10', $pesma);
+        $pesma = str_replace('-B', '-11', $pesma);
+        $pesma = str_replace('-H', '-12', $pesma);
+
+        $pesma = str_replace('C..', '1..', $pesma);
+        $pesma = str_replace('C#..', '2..', $pesma);
+        $pesma = str_replace('D..', '3..', $pesma);
+        $pesma = str_replace('D#..', '4..', $pesma);
+        $pesma = str_replace('E..', '5..', $pesma);
+        $pesma = str_replace('F..', '6..', $pesma);
+        $pesma = str_replace('F#..', '7..', $pesma);
+        $pesma = str_replace('G..', '8..', $pesma);
+        $pesma = str_replace('G#..', '9..', $pesma);
+        $pesma = str_replace('A..', '10..', $pesma);
+        $pesma = str_replace('B..', '11..', $pesma);
+        $pesma = str_replace('H..', '12..', $pesma);
+
+        $pesma = str_replace('..C', '..1', $pesma);
+        $pesma = str_replace('..C#', '..2', $pesma);
+        $pesma = str_replace('..D', '..3', $pesma);
+        $pesma = str_replace('..D#', '..4', $pesma);
+        $pesma = str_replace('..E', '..5', $pesma);
+        $pesma = str_replace('..F', '..6', $pesma);
+        $pesma = str_replace('..F#', '..7', $pesma);
+        $pesma = str_replace('..G', '..8', $pesma);
+        $pesma = str_replace('..G#', '..9', $pesma);
+        $pesma = str_replace('..A', '..10', $pesma);
+        $pesma = str_replace('..B', '..11', $pesma);
+        $pesma = str_replace('..H', '..12', $pesma);
 
         $pesma = str_replace('Cis', 2, $pesma);
+        $pesma = str_replace('Db', 2, $pesma);
         $pesma = str_replace('Dis', 4, $pesma);
+        $pesma = str_replace('Eb', 4, $pesma);
         $pesma = str_replace('Fis', 7, $pesma);
+        $pesma = str_replace('Gb', 7, $pesma);
         $pesma = str_replace('Gis', 9, $pesma);
+        $pesma = str_replace('Ab', 9, $pesma);
 
         //menjamo molove u brojeve
         $pesma = str_replace('Cm', 21, $pesma);
@@ -85,6 +162,19 @@
         $pesma = str_replace('F#m', 27, $pesma);
         $pesma = str_replace('Gm', 28, $pesma);
         $pesma = str_replace('G#m', 29, $pesma);
+        $pesma = str_replace('Am', 30, $pesma);
+        $pesma = str_replace('Bm', 31, $pesma);
+        $pesma = str_replace('Hm', 32, $pesma);
+
+        $pesma = str_replace('Cm', 21, $pesma);
+        $pesma = str_replace('Dbm', 22, $pesma);
+        $pesma = str_replace('Dm', 23, $pesma);
+        $pesma = str_replace('Ebm', 24, $pesma);
+        $pesma = str_replace('Em', 25, $pesma);
+        $pesma = str_replace('Fm', 26, $pesma);
+        $pesma = str_replace('Gbm', 27, $pesma);
+        $pesma = str_replace('Gm', 28, $pesma);
+        $pesma = str_replace('Abm', 29, $pesma);
         $pesma = str_replace('Am', 30, $pesma);
         $pesma = str_replace('Bm', 31, $pesma);
         $pesma = str_replace('Hm', 32, $pesma);
@@ -103,7 +193,23 @@
         $pesma = str_replace('B7', 51, $pesma);
         $pesma = str_replace('H7', 52, $pesma);
 
+        $pesma = str_replace('C7', 41, $pesma);
+        $pesma = str_replace('Db7', 42, $pesma);
+        $pesma = str_replace('D7', 43, $pesma);
+        $pesma = str_replace('Eb7', 44, $pesma);
+        $pesma = str_replace('E7', 45, $pesma);
+        $pesma = str_replace('F7', 46, $pesma);
+        $pesma = str_replace('Gb7', 47, $pesma);
+        $pesma = str_replace('G7', 48, $pesma);
+        $pesma = str_replace('Ab7', 49, $pesma);
+        $pesma = str_replace('A7', 50, $pesma);
+        $pesma = str_replace('B7', 51, $pesma);
+        $pesma = str_replace('H7', 52, $pesma);
+
         var_dump($pesma);
+
+        $a=explode(" ", $pesma);
+        var_dump($a);
         
         
         
