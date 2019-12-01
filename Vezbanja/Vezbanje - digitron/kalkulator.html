@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body
+                {width:100%;}
+            fieldset
+                {margin-left:auto;
+                margin-right:auto;
+                width:40%;}
+            .buttoni
+                {display:flex;
+                flex-direction: row;
+                justify-content: space-around;}
+            button
+                {width:50px;
+                height:50px;}
+            #polje
+                {width:60%;}
+            #result
+                {width:30%;}
+        </style>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Kalkulator</legend>
+            <input type="text"  id="polje" value="">
+            <span>=</span>
+            <input type="text" id="result" value="">
+            <div class="buttoni">
+                <div>
+                    <p>
+                        <button name="jedan" onclick="jedan()"><h3>1</h3></button>
+                        <button name="dva" onclick="dva()"><h3>2</h3></button>
+                        <button name="tri" onclick="tri()"><h3>3</h3></button>
+                        <button name="cetiri" onclick="cetiri()"><h3>4</h3></button>
+                    </p>
+                    <p>
+                        <button name="pet" onclick="pet()"><h3>5</h3></button>
+                        <button name="sest" onclick="sest()"><h3>6</h3></button>
+                        <button name="sedam" onclick="sedam()"><h3>7</h3></button>
+                        <button name="osam" onclick="osam()"><h3>8</h3></button>
+                    </p>
+                    <p> 
+                        <button name="devet" onclick="devet()"><h3>9</h3></button>
+                        <button name="nula" onclick="nula()"><h3>0</h3></button>
+                        <button name="tacka" onclick="tacka()"><h3>.</h3></button>
+                        <button name="obrisisve" onclick="obrisisve()"><h3>C</h3></button>
+                    </p>
+    
+                </div>
+                <div>
+                    <p>
+                        <button name="plus" onclick="plus()"><h3>+</h3></button>
+                        <button name="minus" onclick="minus()"><h3>-</h3></button>
+                    </p>
+                    <p>
+                        <button name="puta" onclick="puta()"><h3>*</h3></button>
+                        <button name="podeljeno" onclick="podeljeno()"><h3>/</h3></button>
+                    </p>
+                    <p>
+                        <button name="otvorenazagrada" onclick="otvorenazagrada()"><h3>(</h3></button>
+                        <button name="zatvorenazagrada" onclick="zatvorenazagrada()"><h3>)</h3></button>
+                    </p>
+                </div>
+            </div>
+        </fieldset>
+
+        <script>
+            var ispis='';
+            var rezultat='';
+
+            function jedan()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat(1);
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function dva()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat(2);
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function tri()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat(3);
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function cetiri()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat(4);
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function pet()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat(5);
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function sest()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat(6);
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function sedam()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat(7);
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function osam()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat(8);
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function devet()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat(9);
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function nula()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat(0);
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function tacka()
+            {
+                if(ispis.substr(-1)!='.')
+                {
+                    document.getElementById('polje').value = document.getElementById('polje').value.concat('.');
+                    ispis=document.getElementById('polje').value;
+                    rezultat=eval(ispis);
+                    document.getElementById('result').value = rezultat;
+                }
+            }
+            function otvorenazagrada()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat('(');
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function zatvorenazagrada()
+            {
+                document.getElementById('polje').value = document.getElementById('polje').value.concat(')');
+                ispis=document.getElementById('polje').value;
+                rezultat=eval(ispis);
+                document.getElementById('result').value = rezultat;
+            }
+            function plus()
+            {
+                if(ispis.substr(-1)!='+' && ispis.substr(-1)!='-' && ispis.substr(-1)!='*' && ispis.substr(-1)!='/')
+                {
+                    document.getElementById('polje').value = document.getElementById('polje').value.concat('+');
+                    ispis=document.getElementById('polje').value;
+                }
+                
+            }
+            function minus()
+            {
+                if(ispis.substr(-1)!='+' && ispis.substr(-1)!='-' && ispis.substr(-1)!='*' && ispis.substr(-1)!='/')
+                {
+                    document.getElementById('polje').value = document.getElementById('polje').value.concat('-');
+                    ispis=document.getElementById('polje').value;
+                }
+            }
+            function puta()
+            {
+                if(ispis.substr(-1)!='+' && ispis.substr(-1)!='-' && ispis.substr(-1)!='*' && ispis.substr(-1)!='/')
+                {
+                    document.getElementById('polje').value = document.getElementById('polje').value.concat('*');
+                    ispis=document.getElementById('polje').value;
+                }
+            }
+            function podeljeno()
+            {
+                if(ispis.substr(-1)!='+' && ispis.substr(-1)!='-' && ispis.substr(-1)!='*' && ispis.substr(-1)!='/')
+                {
+                    document.getElementById('polje').value = document.getElementById('polje').value.concat('/');
+                    ispis=document.getElementById('polje').value;
+                }
+            }
+            function obrisisve()
+            {
+                document.getElementById('polje').value = "";
+                document.getElementById('result').value = "";
+            }
+            
+            
+        </script>
+    </body>
+</html>
