@@ -1,0 +1,16 @@
+body
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+.field_set
+    {
+        border: 5px solid red;
+        display: inline;
+    }
+.error
+    {
+        color:red;
+    }
