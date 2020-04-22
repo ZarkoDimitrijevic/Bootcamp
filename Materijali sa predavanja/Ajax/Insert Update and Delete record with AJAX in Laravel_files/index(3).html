@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://s0.2mdn.net/9208292/1576060292255/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Banner_v1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="ad.size" content="width=160,height=600">
+
+	<!-- GDN -->
+	<script type="text/javascript">
+		var clickTag = " ";
+	</script>
+
+	<style>
+
+		html, body 					{ padding: 0; margin: 0; overflow: hidden;}
+		img 						{ padding: 0; margin: 0; position: absolute; border: none; }
+		div 						{ padding: 0; margin: 0; position: absolute; display: block; }
+		.border                     { z-index: 9000; background-color: #000000;}
+		#container_ad				{ width: 160px; height: 600px; overflow: hidden; cursor: pointer; display: none;}
+
+		
+		#ad_bg						{ left:   0  ; top:   0  ; width: 160px; height: 600px; background-color:#101010;}
+		#img1						{ left:   0  ; top:   0  ; }
+		#img2						{ left:   0  ; top:   0  ; }
+		#img3						{ left:   0  ; top:   0  ; }
+		#img4						{ left:   0  ; top:   0  ; }
+		#bg_cont					{ left:   0  ; top:  80px; width: 160px; height: 295px; }
+		#text4						{ left:   0  ; top:   0  ; }
+		#text3						{ left:   0  ; top:   0  ; }
+		#text2						{ left:   0  ; top:   0  ; }
+		#text1						{ left:   0  ; top:   0  ; }
+		#kraft_text					{ left:   0  ; top:   0  ; }
+		#kraft_logo_fix				{ left:   0  ; top:   0  ; width: 160px; height:  75px; background-color:#101010;}
+		#kraft_text_cont			{ left:   0  ; top:   0  ; width: 160px; height: 600px; }
+		#cta_img					{ left:   0  ; top:   0  ; }
+		#cta2_img					{ left:   0  ; top:   0  ; }
+		#cta						{ left:  13px; top: 537px; width: 134px; height:  37px; }
+		#info_btn_text				{ left:   0  ; top:   0  ; }
+		#info_btn					{ left:  54px; top: 583px; width:  53px; height:  10px; }
+		#info_text					{ left:   0  ; top:   0  ; }
+		#info_logo_fix				{ left:   0  ; top:   0  ; width: 160px; height:  75px; background-color:#101010;}
+		#info_text_cont				{ left:   0  ; top:   0  ; width: 160px; height:  75px; }
+		#logo						{ left:  93px; top:  20px; }
+		#info_mouse					{ left:   0  ; top:   0  ; width: 160px; height: 600px; background-color:#101010;}
+		#blende						{ left:   0  ; top:   0  ; width: 160px; height: 600px; background-color:#101010;}
+		
+
+	</style>
+<script type="text/javascript">
+    
+  (function() {
+    var MAX_URL_PARAM_LENGTH = 34;
+    var CLICK_X_URL_KEY = 'nx';
+    var CLICK_Y_URL_KEY = 'ny';
+    var CREATIVE_DIMENSIONS_KEY = 'dim';
+    var AD_URL_PARAM = '&adurl=';
+
+    var relegateNavigation = '';
+    var urlParamMap = {};
+
+    urlParamMap[CLICK_X_URL_KEY] = null;
+    urlParamMap[CLICK_Y_URL_KEY] = null;
+    urlParamMap[CREATIVE_DIMENSIONS_KEY] = null;
+
+    var handleClickTagMessage = function(e) {
+      try {
+        var eventData = JSON.parse(e.data);
+      } catch (err) {
+        return;
+      }
+      if (eventData.isInitClickTag) {
+        if (eventData.clickTags) {
+          for (var i = 0; i < eventData.clickTags.length; i++) {
+            var clkTag = eventData.clickTags[i];
+            window[clkTag.name] = clkTag.url;
+          }
+        } else if (eventData.clickTag) {
+          window.clickTag = eventData.clickTag;
+        }
+        relegateNavigation = eventData.relegateNavigation;
+      }
+    };
+
+    var storeClickCoordinates = function(e) {
+      urlParamMap[CLICK_X_URL_KEY] = Math.round(e.clientX);
+      urlParamMap[CLICK_Y_URL_KEY] = Math.round(e.clientY);
+    };
+
+    var getCreativeDimensions = function() {
+      return window.innerWidth + 'x' + window.innerHeight;
+    }
+
+    var getExitClickParams = function(e) {
+      urlParamMap[CREATIVE_DIMENSIONS_KEY] = getCreativeDimensions();
+
+      var exitParams = '';
+      for (var key in urlParamMap) {
+        exitParams += '&' + key + '=';
+        if (urlParamMap[key] !== null) {
+          exitParams += urlParamMap[key];
+        }
+      }
+      return exitParams;
+    }
+
+    var appendExitClickParams = function(url) {
+      var adUrlIndex = url.toLowerCase().indexOf(AD_URL_PARAM);
+      var paramsToBeAdded = getExitClickParams();
+      if (adUrlIndex > -1 && paramsToBeAdded.length <= MAX_URL_PARAM_LENGTH) {
+        url = url.substr(0, adUrlIndex) + paramsToBeAdded +
+          url.substr(adUrlIndex);
+      };
+      return url;
+    };
+
+    if (open.call) {
+      window.open = function(open) {
+        return function(url, name, features) {
+          url = appendExitClickParams(url);
+          if (relegateNavigation === 'parent') {
+            var message = {'clickTag': url, 'isPostClickTag': true};
+            parent.postMessage(JSON.stringify(message), '*');
+          } else {
+            var args = [url, name];
+            if (features) {
+              args.push(features);
+            }
+            open.apply(window, args);
+          }
+        };
+      }(window.open);
+    }
+
+    if (window.addEventListener) {
+      window.addEventListener(
+          'message', handleClickTagMessage, false);
+      window.addEventListener('mousedown', storeClickCoordinates, true);
+    } else {
+      window.attachEvent('onmessage', handleClickTagMessage);
+    }
+  })();
+    
+  </script></head>
+<body>
+<div id="container_ad" style="display: block;">
+	
+		
+	<div id="ad_bg"></div>
+<div id="bg_cont" style="visibility: inherit; opacity: 1; overflow: hidden; transform: matrix(1, 0, 0, 1, 0, 0);">
+			<img id="img1" src="./img1.jpg" style="transform: matrix(1.05999, 0.00018, -0.00018, 1.05999, 0, 0); visibility: inherit; opacity: 1;">
+			<img id="img2" src="./img2.jpg" style="transform: matrix(1.05999, 0.00018, -0.00018, 1.05999, 0, 0); visibility: inherit; opacity: 1;">
+			<img id="img3" src="./img3.jpg" style="transform: matrix(1.05999, 0.00018, -0.00018, 1.05999, 0, 0); visibility: inherit; opacity: 1;">
+			<img id="img4" src="./img1.jpg" style="transform: matrix(0.99999, 0.00017, -0.00017, 0.99999, 0, 0); visibility: inherit; opacity: 1;">
+		</div>
+		<img id="text4" src="./text4.png" style="transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0); transform-origin: 0% 0% 0px; visibility: inherit; opacity: 1;">
+		<img id="text3" src="./text3.png" style="transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0); transform-origin: 0% 0% 0px; visibility: hidden; opacity: 0;">
+		<img id="text2" src="./text2.png" style="transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0); transform-origin: 0% 0% 0px; visibility: hidden; opacity: 0;">
+		<img id="text1" src="./text1.png" style="transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0); transform-origin: 0% 0% 0px; visibility: hidden; opacity: 0;">
+		<div id="kraft_text_cont" style="visibility: hidden; opacity: 0;">
+			<img id="kraft_text" src="./kraft_text.png" style="transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, -417); transform-origin: 0% 0% 0px; left: 0px; top: 0px;">
+		
+	<div id="kraft_logo_fix"></div>
+</div>
+		<div id="cta" style="transform-origin: 0% 0% 0px; transform: matrix(0.5, 0, 0, 0.5, 0, 0); visibility: inherit; opacity: 1;">
+			<img id="cta_img" src="./cta_img.png" style="visibility: inherit; opacity: 1; transform: matrix(0.99999, 0.00017, -0.00017, 0.99999, 0, 0);">
+			<img id="cta2_img" src="./cta2_img.png" style="visibility: hidden; opacity: 0; transform: matrix(0.99999, 0.00017, -0.00017, 0.99999, 0, 0);">
+		</div>
+		<div id="info_btn" style="transform-origin: 0% 0% 0px; transform: matrix(0.5, 0, 0, 0.5, 0, 0); visibility: hidden; opacity: 0;">
+			<img id="info_btn_text" src="./info_btn_text.png" style="transform: matrix(0.99999, 0.00017, -0.00017, 0.99999, 0, 0);">
+		</div>
+		<div id="info_text_cont" style="visibility: hidden; opacity: 0;">
+			<img id="info_text" src="./info_text.png" style="transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0); transform-origin: 0% 0% 0px;">
+		
+	<div id="info_logo_fix"></div>
+</div>
+		<img id="logo" src="./logo.png" style="transform: matrix(0.49999, 8e-05, -8e-05, 0.49999, 0, 0); transform-origin: 0% 0% 0px;">
+		
+	<div id="info_mouse" style="display: none; opacity: 0.001;"></div>
+
+	<div id="blende" style="visibility: hidden; opacity: 0;"></div>
+
+		
+
+	<div id="border_top" class="border" style="left: 0; top: 0; width: 100%; height: 1px;"></div>
+	<div id="border_right" class="border" style="right: 0; top: 0; width: 1px; height: 100%;"></div>
+	<div id="border_bottom" class="border" style="left: 0; bottom: 0; width: 100%; height: 1px;"></div>
+	<div id="border_left" class="border" style="left: 0; top: 0; width: 1px; height: 100%;"></div>
+
+</div>
+
+
+<!-- Greensock GSAP (https://support.google.com/richmedia/answer/6307288)-->
+<script src="./tweenmax_1.18.0_499ba64a23378545748ff12d372e59e9_min.js.download"></script>
+
+
+<script>
+
+	var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+	//DCS
+
+	function exitHandler(e) {
+		trace(e.target.id)
+		if(isMobile===true){
+			if(e.target.id!=="info_text" && e.target.id!=="info_btn_text"&&e.target.id!=="info_mouse"){
+				window.open(window.clickTag, '_blank')
+			}else {
+				if(e.target.id==="info_mouse"){
+					hideInfo()
+				}
+			}
+		}else{
+			window.open(window.clickTag, '_blank')
+		}
+	}
+
+	var hideInfo;
+
+	container_ad.addEventListener('click', exitHandler, false);
+
+
+	
+	var blende = document.getElementById ("blende");
+	var info_mouse = document.getElementById ("info_mouse");
+	var logo = document.getElementById ("logo");
+	var info_text_cont = document.getElementById ("info_text_cont");
+	var info_logo_fix = document.getElementById ("info_logo_fix");
+	var info_text = document.getElementById ("info_text");
+	var info_btn = document.getElementById ("info_btn");
+	var info_btn_text = document.getElementById ("info_btn_text");
+	var cta = document.getElementById ("cta");
+	var cta2_img = document.getElementById ("cta2_img");
+	var cta_img = document.getElementById ("cta_img");
+	var kraft_text_cont = document.getElementById ("kraft_text_cont");
+	var kraft_logo_fix = document.getElementById ("kraft_logo_fix");
+	var kraft_text = document.getElementById ("kraft_text");
+	var text1 = document.getElementById ("text1");
+	var text2 = document.getElementById ("text2");
+	var text3 = document.getElementById ("text3");
+	var text4 = document.getElementById ("text4");
+	var bg_cont = document.getElementById ("bg_cont");
+	var img4 = document.getElementById ("img4");
+	var img3 = document.getElementById ("img3");
+	var img2 = document.getElementById ("img2");
+	var img1 = document.getElementById ("img1");
+	var ad_bg = document.getElementById ("ad_bg");
+
+	var items_array = [blende,info_mouse,logo,info_text_cont,info_logo_fix,info_text,info_btn,info_btn_text,cta,cta2_img,cta_img,kraft_text_cont,kraft_logo_fix,kraft_text,text1,text2,text3,text4,bg_cont,img4,img3,img2,img1,ad_bg];
+	var w = 160; /*banner width*/
+	var h = 600; /*banner height*/
+
+		// banner content end
+	var globalTimeline = null;
+
+
+
+	var initAd = function () {
+		trace('initAd()');
+
+		///
+		cta.onmouseover=function (ev) {
+			TweenMax.set(cta2_img, {autoAlpha: 1});
+			TweenMax.set(cta_img, {autoAlpha: 0});
+		};
+
+		cta.onmouseout=function (ev) {
+			TweenMax.set(cta2_img, {autoAlpha: 0});
+			TweenMax.set(cta_img, {autoAlpha: 1});
+		};
+		TweenMax.set(cta2_img, {autoAlpha: 0});
+		TweenMax.set(cta_img, {autoAlpha: 1});
+
+		////////////////////
+		var end =false;
+
+		function showInfo(){
+
+			function showInfoDel(){
+				TweenMax.set(info_text_cont, {autoAlpha: 1});
+				TweenMax.set(info_btn_text, {autoAlpha: 0});
+				info_mouse.style.display='block';
+				autoScroll(info_text)
+
+			}
+
+			TweenMax.delayedCall(0.2,showInfoDel);
+			globalTimeline.pause();
+
+		}
+
+
+
+
+
+		var startAutoScroll;
+
+		function killAutoScroll() {
+			TweenLite.killTweensOf(info_text);
+			TweenLite.killTweensOf(kraft_text);
+			TweenLite.killTweensOf(startAutoScroll);
+		}
+
+		function autoScroll(el,onComplete){
+			killAutoScroll()
+
+			globalTimeline.pause();
+
+			TweenMax.set(el, {top:0,left:0,y:0});
+
+			var off = (el.offsetHeight/2 || h) - (container_ad.offsetHeight|| h);
+
+			var time = 0.03*off
+
+			startAutoScroll=function(){
+				TweenMax.to(el, time, {y: -(off), ease: Linear.easeNone,onComplete:onComplete});
+			}
+			TweenMax.delayedCall(2,startAutoScroll);
+
+			if(onComplete===undefined){
+				onComplete=function(){
+
+				}
+			}
+
+
+		}
+
+		info_btn_text.onmouseover=showInfo;
+
+		hideInfo=function () {
+			killAutoScroll()
+
+			TweenMax.set(info_text_cont, {autoAlpha: 0});
+			TweenMax.set(info_btn_text, {autoAlpha: 1});
+			info_mouse.style.display='none';
+			if(end===true){
+			}else {
+				if(end===true){
+					globalTimeline.play('last');
+				}else{
+					globalTimeline.play();
+				}
+
+			}
+		}
+
+
+		onLoop = function (){
+			if ((numLoops == 1 && maxLoops == 1) || (maxLoops > 0 && numLoops > maxLoops)) {
+				return; // Only one run through.
+			}
+			numLoops++;
+			//trace("onLoop :::  ::: loop " + numLoops + " of " + maxLoops);
+			if (maxLoops == -1 || numLoops < maxLoops) {
+				playFullLoop();
+			} else if (numLoops == maxLoops) {
+				playFullLoop();
+			}
+		}
+
+
+		info_mouse.style.display='none';
+		info_mouse.style.opacity='0.001';
+
+		info_mouse.onmouseout=hideInfo;
+
+		img4.src='img/img1.jpg'
+
+		TweenMax.set(info_text_cont, {autoAlpha: 0});
+		///
+
+		// -- TIMELINE START
+
+		CSSPlugin.defaultForce3D = false;
+
+		//TweenMax.set(".origin_center", {transformOrigin: "50% 50%"});
+		TweenMax.set("img", {rotation: "0.01deg"});
+
+		// ================================================================
+
+
+		TweenMax.set([logo,info_text,info_btn,text1,text2,text3,text4,cta,kraft_text], {scale: 0.5,transformOrigin: "0% 0%"});
+
+
+		var gtl = new TimelineMax({paused: true, onComplete: onLoop});
+		var cl = "";
+		var tli = {maxLoopTime: 17,last:1,pos:0,frame_p:4.50,img_scale_time:4.90,img_scale:1.06};
+
+		function addLabel(str,time){
+			gtl.addLabel(str, cl + "+="+time);cl = str;
+		}
+
+		addLabel("start",0);
+
+		gtl.from(tli, tli.maxLoopTime, {pos: 100}, cl + "+=0.00");
+		gtl.set([text1,text2,text3,text4,info_btn,img2,img3,img4,info_text_cont,cta,bg_cont,kraft_text_cont],  {autoAlpha: 0}, cl + "+=0.00");
+		gtl.set([text1,text2,text3,text4],  {x:-10}, cl + "+=0.00");
+		gtl.set([bg_cont],  {overflow:'hidden'}, cl + "+=0.00");
+
+		addLabel("fr1",0.01);
+		gtl.to(text1, 0.75 ,{autoAlpha:1 , ease:Sine.easeInOut}, cl + "+=0.0");
+		gtl.to(text1, 1 ,{x:0, ease:Power1.easeOut}, cl + "+=0.0");
+		gtl.to(bg_cont, 0.75 ,{autoAlpha:1, ease:Sine.easeInOut}, cl + "+=0.00");
+		gtl.to(img1, 0.75 ,{autoAlpha:1, ease:Sine.easeInOut}, cl + "+=0.00");
+		gtl.to(img1, tli.img_scale_time ,{scale:tli.img_scale , ease:Linear.easeNone}, cl + "+=0.00");
+
+
+
+		addLabel("fr2",tli.frame_p);
+		gtl.to([text1], 0.75 ,{autoAlpha:0}, cl + "-=0.40");
+		gtl.to(text2, 0.75 ,{autoAlpha:1 , ease:Sine.easeInOut}, cl + "+=0.0");
+		gtl.to(text2, 1 ,{x:0, ease:Power1.easeOut}, cl + "+=0.0");
+		gtl.to(img2, 0.75 ,{autoAlpha:1, ease:Sine.easeInOut}, cl + "+=0.00");
+		gtl.to(img2, tli.img_scale_time ,{scale:tli.img_scale , ease:Linear.easeNone}, cl + "+=0.00");
+
+
+		addLabel("fr3",tli.frame_p);
+		gtl.to([text2], 0.75 ,{autoAlpha:0}, cl + "-=0.40");
+		gtl.to(text3, 0.75 ,{autoAlpha:1 , ease:Sine.easeInOut}, cl + "+=0.0");
+		gtl.to(text3, 1 ,{x:0, ease:Power1.easeOut}, cl + "+=0.0");
+		gtl.to(img3, 0.75 ,{autoAlpha:1, ease:Sine.easeInOut}, cl + "+=0.00");
+		gtl.to(img3, tli.img_scale_time ,{scale:tli.img_scale , ease:Linear.easeNone}, cl + "+=0.00");
+
+		addLabel("fr4",tli.frame_p);
+		gtl.to([text3], 0.75 ,{autoAlpha:0}, cl + "-=0.40");
+		gtl.to(text4, 0.75 ,{autoAlpha:1 , ease:Sine.easeInOut}, cl + "+=0.0");
+		gtl.to(text4, 1 ,{x:0, ease:Power1.easeOut}, cl + "+=0.0");
+		gtl.to(img4, 0.75 ,{autoAlpha:1, ease:Sine.easeInOut}, cl + "+=0.00");
+		gtl.to(img4, tli.img_scale_time ,{scale:tli.img_scale , ease:Linear.easeNone}, cl + "+=0.00");
+		gtl.to([cta], 0.75 ,{autoAlpha:1 , ease:Sine.easeInOut}, cl + "+=0.40");
+
+
+		addLabel("kraft",tli.frame_p);
+		gtl.to([bg_cont,text4,info_btn,cta], 0.9 ,{x:0,autoAlpha:0, ease:Power1.easeOut}, cl + "-=0.40");
+		gtl.to(kraft_text_cont, 0.75 ,{autoAlpha:1 , ease:Sine.easeInOut}, cl + "+=0.0");
+		var _onComplete=function(){
+			gtl.play("kraft_end")
+		}
+		gtl.call(autoScroll,[kraft_text,_onComplete],this,cl + "+=1.00");
+
+		addLabel("kraft_end",3);
+
+		addLabel("fr5",1);
+		gtl.to([kraft_text_cont], 0.75 ,{autoAlpha:0}, cl + "-=0.40");
+		gtl.to([img4], 0 ,{scale:1}, cl + "-=0.40");
+		gtl.to(text4, 0.75 ,{autoAlpha:1 , ease:Sine.easeInOut}, cl + "+=0.0");
+		gtl.to(text4, 1 ,{x:0, ease:Power1.easeOut}, cl + "+=0.0");
+		gtl.to(bg_cont, 0.75 ,{autoAlpha:1, ease:Sine.easeInOut}, cl + "+=0.00");
+		gtl.to([cta], 0.75 ,{autoAlpha:1 , ease:Sine.easeInOut}, cl + "+=0.40");
+
+
+
+		addLabel("last",1.50);
+		maxLoops = 1;
+		function lastFrame (){
+			trace('lastFrame '+numLoops+' / '+maxLoops);
+
+			if (numLoops >= maxLoops) {
+				trace('end');
+				end=true
+				gtl.pause()
+
+
+			}
+		}
+
+		gtl.call(lastFrame,null,this,cl + "+=0.00");
+
+
+
+
+
+
+		//addLabel("fadeout",tli.maxLoopTime-tli.last);
+		addLabel("fadeout",4);
+		gtl.to([bg_cont,text4,info_btn,cta], 0.9 ,{x:0,autoAlpha:0, ease:Power1.easeOut}, cl + "+=0.00");
+
+		addLabel("end",0);
+
+		gtl.seek("phase1");
+
+		trace("animation length (one loop) ::: " + gtl.duration() + " ::: maxLoops ::: " + maxLoops);
+
+		globalTimeline = gtl;
+		// -- TIMELINE END
+
+
+
+
+		onLoop();
+		showAd();
+		TweenMax.to(blende,0.5,{autoAlpha: 0,ease:Power1.easeOut,delay:0.1})
+	};
+
+	// -- LOOP HANDLER
+
+	var maxLoops = 2;	// Number of loops including the first run.
+	var numLoops = 0;	// Current number of loops. Starts with 1 (the first run).
+
+
+	function playFullLoop() {
+		//trace("playFullLoop ::: timestamp: " + (new Date()).getTime());
+		globalTimeline.play("phase1");
+	}
+
+	function playLastLoop() {
+		//trace("playLastLoop ::: timestamp: " + (new Date()).getTime());
+		globalTimeline.tweenFromTo("phase1", "fadeout");
+	}
+
+
+	var showAd = function(){
+		trace('showAd()');
+		var container_ad = document.getElementById("container_ad");
+		container_ad.style.display = 'block';
+	};
+
+	// -- HELPER
+
+	var trace_id = "";
+	function trace(str) {
+		//console.log(">> " + trace_id +" : " + str);
+	}
+
+	// -- PAGE LOAD
+
+	function onWindowLoaded() {
+		//trace("onWindowLoaded ::: initAd ::: initLocalConnection");
+		initAd();
+	}
+
+	//window.onload = onWindowLoaded;
+	document.addEventListener("DOMContentLoaded", function(event) {
+		//console.log("DOM fully loaded and parsed");
+		onWindowLoaded()
+	});
+</script>
+
+</body></html>

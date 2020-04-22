@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- saved from url=(0163)https://jsfiddle.net/tr3aLa2r/5/embedded/?referrer=https%3A%2F%2Fmedium.com%2Ftypecode%2Fa-strategy-for-handling-multiple-file-uploads-using-javascript-eb00a77e15f -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta http-equiv="edit-Type" edit="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JSFiddle</title>
+
+      <meta name="robots" content="index, follow">
+      <meta name="googlebot" content="index, follow">
+
+      <script src="./highlight.pack.js.download"></script>
+      <script src="./embed.js.download"></script>
+      <link rel="stylesheet" media="screen" href="./embed-light.css">
+
+      <script type="text/javascript">
+        var height;
+        var force_height = null;
+        var slug = "tr3aLa2r";
+        var show_src = "//fiddle.jshell.net/tr3aLa2r/5/show/light/";
+        var resize_element_counter = 0;
+        var shell_edit_url = "/tr3aLa2r/5/light/";
+
+      </script>
+
+    <link rel="stylesheet" media="screen" href="./css">
+
+    <style type="text/css" media="screen">
+    </style>
+
+  </head>
+  <body>
+    <div id="wrapper">
+        <header>
+          <h1><a href="https://jsfiddle.net/tr3aLa2r/5/?utm_source=website&amp;utm_medium=embed&amp;utm_campaign=tr3aLa2r" target="_blank">Edit in JSFiddle</a></h1>
+          <div id="actions">
+            <ul class="normalRes">
+                <li class="&quot;active&quot;">
+                  <a data-trigger-type="js" href="https://jsfiddle.net/tr3aLa2r/5/embedded/?referrer=https%3A%2F%2Fmedium.com%2Ftypecode%2Fa-strategy-for-handling-multiple-file-uploads-using-javascript-eb00a77e15f#JavaScript">JavaScript</a>
+                </li>
+                <li class="active">
+                  <a data-trigger-type="html" href="https://jsfiddle.net/tr3aLa2r/5/embedded/?referrer=https%3A%2F%2Fmedium.com%2Ftypecode%2Fa-strategy-for-handling-multiple-file-uploads-using-javascript-eb00a77e15f#HTML">HTML</a>
+                </li>
+                <li>
+                  <a data-trigger-type="css" href="https://jsfiddle.net/tr3aLa2r/5/embedded/?referrer=https%3A%2F%2Fmedium.com%2Ftypecode%2Fa-strategy-for-handling-multiple-file-uploads-using-javascript-eb00a77e15f#CSS">CSS</a>
+                </li>
+                <li class="">
+                  <a data-trigger-type="result" href="https://jsfiddle.net/tr3aLa2r/5/embedded/?referrer=https%3A%2F%2Fmedium.com%2Ftypecode%2Fa-strategy-for-handling-multiple-file-uploads-using-javascript-eb00a77e15f#Result">Result</a>
+                </li>
+            </ul>
+            <div class="hl animated" style="left: 81.0938px; width: 56.4375px;"></div>
+          </div>
+        </header>
+
+        <div id="tabs">
+              <pre class="tCont hljs javascript">(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+	<span class="hljs-keyword">var</span> fileCatcher = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'file-catcher'</span>);
+  <span class="hljs-keyword">var</span> fileInput = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'file-input'</span>);
+  <span class="hljs-keyword">var</span> fileListDisplay = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'file-list-display'</span>);
+  
+  <span class="hljs-keyword">var</span> fileList = [];
+  <span class="hljs-keyword">var</span> renderFileList, sendFile;
+  
+  fileCatcher.addEventListener(<span class="hljs-string">'submit'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evnt</span>) </span>{
+  	evnt.preventDefault();
+    fileList.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">file</span>) </span>{
+    	sendFile(file);
+    });
+  });
+  
+  fileInput.addEventListener(<span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evnt</span>) </span>{
+ 		fileList = [];
+  	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; fileInput.files.length; i++) {
+    	fileList.push(fileInput.files[i]);
+    }
+    renderFileList();
+  });
+  
+  renderFileList = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  	fileListDisplay.innerHTML = <span class="hljs-string">''</span>;
+    fileList.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">file, index</span>) </span>{
+    	<span class="hljs-keyword">var</span> fileDisplayEl = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'p'</span>);
+      fileDisplayEl.innerHTML = (index + <span class="hljs-number">1</span>) + <span class="hljs-string">': '</span> + file.name;
+      fileListDisplay.appendChild(fileDisplayEl);
+    });
+  };
+  
+  sendFile = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">file</span>) </span>{
+  	<span class="hljs-keyword">var</span> formData = <span class="hljs-keyword">new</span> FormData();
+    <span class="hljs-keyword">var</span> request = <span class="hljs-keyword">new</span> XMLHttpRequest();
+ 
+    formData.set(<span class="hljs-string">'file'</span>, file);
+    request.open(<span class="hljs-string">"POST"</span>, <span class="hljs-string">'https://jsonplaceholder.typicode.com/photos'</span>);
+    request.send(formData);
+  };
+})();</pre>
+              <pre class="tCont hljs xml active"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'file-catcher'</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'file-input'</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'file'</span> <span class="hljs-attr">multiple</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'submit'</span>&gt;</span>
+    Submit
+  <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'file-list-display'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></pre>
+              <pre class="tCont hljs"></pre>
+              <div class="tCont result" id="result"><iframe src="./saved_resource(1).html" frameborder="0" sandbox="allow-forms allow-scripts allow-same-origin allow-modals allow-popups" allow="midi; geolocation; microphone; camera; encrypted-media;"></iframe></div>
+        </div>
+    </div>
+  
+
+</body></html>

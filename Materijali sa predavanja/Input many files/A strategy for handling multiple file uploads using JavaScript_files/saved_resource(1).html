@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://fiddle.jshell.net/tr3aLa2r/5/show/light/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title></title>
+  
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script type="text/javascript" src="./dummy.js.download"></script>
+
+    <link rel="stylesheet" type="text/css" href="./result-light.css">
+
+
+  <style id="compiled-css" type="text/css">
+      
+  </style>
+
+
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">//<![CDATA[
+
+    window.onload=function(){
+      
+(function () {
+	var fileCatcher = document.getElementById('file-catcher');
+  var fileInput = document.getElementById('file-input');
+  var fileListDisplay = document.getElementById('file-list-display');
+  
+  var fileList = [];
+  var renderFileList, sendFile;
+  
+  fileCatcher.addEventListener('submit', function (evnt) {
+  	evnt.preventDefault();
+    fileList.forEach(function (file) {
+    	sendFile(file);
+    });
+  });
+  
+  fileInput.addEventListener('change', function (evnt) {
+ 		fileList = [];
+  	for (var i = 0; i < fileInput.files.length; i++) {
+    	fileList.push(fileInput.files[i]);
+    }
+    renderFileList();
+  });
+  
+  renderFileList = function () {
+  	fileListDisplay.innerHTML = '';
+    fileList.forEach(function (file, index) {
+    	var fileDisplayEl = document.createElement('p');
+      fileDisplayEl.innerHTML = (index + 1) + ': ' + file.name;
+      fileListDisplay.appendChild(fileDisplayEl);
+    });
+  };
+  
+  sendFile = function (file) {
+  	var formData = new FormData();
+    var request = new XMLHttpRequest();
+ 
+    formData.set('file', file);
+    request.open("POST", 'https://jsonplaceholder.typicode.com/photos');
+    request.send(formData);
+  };
+})();
+
+    }
+
+  //]]></script>
+
+</head>
+<body>
+    <form id="file-catcher">
+  <input id="file-input" type="file" multiple="">
+  <button type="submit">
+    Submit
+  </button>
+</form>
+
+<div id="file-list-display"><p>1: IMG_2695.JPG</p><p>2: IMG_2695a.jpg</p></div>
+
+  
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "tr3aLa2r"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+
+</body></html>
